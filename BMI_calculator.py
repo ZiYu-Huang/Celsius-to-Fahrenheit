@@ -1,0 +1,6 @@
+weight = input("請輸入您的體重(kg)")
+height = input("請輸入您的身高(m)")
+weight = float(weight)
+height = float(weight)
+BMI = weight/(height*height)
+print("您的BMI為", BMI)
