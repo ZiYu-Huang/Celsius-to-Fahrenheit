@@ -4,7 +4,6 @@
 # 用.append()可以加東西到清單裡
 # 用len()來取長度
 # 用in 來檢查東西在不在裡面
-
 a = ['Toyota', 'Honda'] #空清單
 print(a)
 print(a[0])
@@ -13,3 +12,14 @@ a.append('Audi')        # 增加Audi到清單內
 print(a[2])
 print(len(a))           #取長度length
 print ('Audi' in a)     # 是非題 True, False
+
+
+# 字串也可以當清單string can also be a list
+# Python把字串內的每個字母和符號當成是清單中的各個東西
+car = 'Audi'    #['A', 'u', 'd', 'i']
+for c in car:
+    print(car)
+
+print(len(car))
+print('A' in car)
+print(car(0))
