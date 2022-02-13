@@ -22,4 +22,4 @@ for c in car:
 
 print(len(car))
 print('A' in car)
-print(car(0))
+print(car[1])
