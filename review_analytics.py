@@ -38,3 +38,26 @@ for d in data:
             good.append(d) 
 print('一共有', len(good), '筆留言提到good')
 print(good[0])
+
+# list comprehension清單快寫法:          # 清單 = [運算符號 for 變數 in 清單 篩選條件] #篩選條件不一定要
+good = [d for d in data if 'good' in d] # 此行等同於上面35~38行 #第一個d是append到good清單中的d
+print('留言筆數還是', len(good), '筆')
+ 
+#其實也可以符合者不放d，不原封不動放d，改放其他東西
+good = [1 for d in data if 'good' in d]   #清單 = [運算符號 for 變數 in 清單 篩選條件] #篩選條件不一定要
+print(good)                               #所以會出現兩萬多筆1
+print('裡面有', len(good), '筆1')
+
+
+# 再一個例子
+bad = ['bad' in d for d in data]          #會出現一堆True & False
+print(bad)
+print('-------------------------------------')
+#傳統寫法就是
+bad = []
+for d in data:
+    bad.append('bad' in d)
+print(bad)
+
+
+
