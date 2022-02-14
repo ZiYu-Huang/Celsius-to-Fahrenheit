@@ -30,3 +30,13 @@ with open('reviews.txt', 'r') as f:
             new.append(h)
 print('一共有', len(new), '筆資料留言') # 要寫在for loop外面，寫在裡面的話，他會一直印 # 不是len(h)
 print(new[0])                          # 看看new清單中的第一筆資料
+
+
+# Q:篩選出有'good'的留言有幾筆
+good = []
+with open('reviews.txt', 'r') as f:
+    for g in f:
+        if 'good' in g:               # if後面接是非題 # good是字串記得加''
+            good.append(g) 
+print('一共有', len(good), '筆留言提到good')
+print(good[0])
