@@ -2,7 +2,18 @@
 #因為要重複輸入，所以用while loop比較合適(不知道會執行多少次用)，比起for loop(固定次數執行)
 #因為要對應名稱和價格，所以是二維清單
 #二維清單即大火車內有各個小小清單組成
+
+#讀取檔案程式碼
 products = []
+with open ('products.csv', 'r', encoding= 'utf-8') as f: #讀取也會有亂碼問題，故加上encoding = 'utf-8'來讀取
+    for line in f:
+        # s = line.strip()split(',')                  # .split(',') 用逗點分割line，遇到逗點就切 # 用.strip( )來除掉換行符號\n #split切割完的結果是清單，存到清單s中
+        # name = s[0]
+        # price = s[1]
+        name, price = line.strip().split(',')         # 切割完分成兩塊，直接把切割完左右兩塊內容分別裝到name和price中，直接簡化前面三行   
+        products.append([name, price])                # 有了兩個屬性name和product，把讀到的內容裝進清單products中
+print(products)                                       # 確定有讀取成功
+
 while True:
     name = input('請輸入商品名稱: ')
     if name == 'q':
@@ -40,7 +51,7 @@ with open ('products.csv', 'w', encoding = 'utf-8') as f:  #解決亂碼問題:�
     for p in products:                                    #之後再一個一個各寫入一行
         f.write(p[0] + ',' + str(p[1]) + '\n')            #用.write()寫到檔案內  # 加法只能字串跟字串，但p[0],p[1]要用str()轉成字串 #改存成.csv格式 # \n就是換行符號
 # 剛剛有說，寫入和讀取都會有編碼問題，即使寫入encoding = 'utf-8'，excel讀取要是沒有使用utf-8，也還是會出現亂碼
-# 如何用excel正確使用utf-8編碼導入csv檔
+#  如何用excel正確使用utf-8編碼導入csv檔
 # Ecel導入csv資料:
 # 資料 -> 從文字檔 ->選取要匯入的csv檔
 # 編碼:選UTF-8
