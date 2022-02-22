@@ -32,3 +32,16 @@ with open ('products.csv', 'w')  as f:              #有沒有products.csv這個
     for p in products:
         f.write(p[0] + ',' + p[1] + '\n') #用.write()寫到檔案內，沒有這行的話還是沒有寫入檔案 # \n是換行符號，寫入多會在最後做換行 #csv檔多是以逗點做區隔，所以要在每個屬性中間用逗點做合併 
 #若上面price = int(price) 被寫成整數而非字串時，p[1]要用str()轉成字串，因為p[1]在上面已經改成int(price)了 ，而加法只能字串跟字串或整數跟整數
+
+# Q: 如何在檔案中加入欄位名稱?
+#add header #加入程式碼來寫header欄位
+with open ('products.csv', 'w', encoding = 'utf-8') as f:  #解決亂碼問題:用encoding編碼轉換 #utf-8 是最廣泛使用的編碼 #寫入和讀取檔案時，都會有編碼問題，可以用encoding= 'utf-8'解決中文字變亂碼的問題
+    f.write('商品,價格\n')                                 #在for loop前面先寫入欄位名稱   
+    for p in products:                                    #之後再一個一個各寫入一行
+        f.write(p[0] + ',' + str(p[1]) + '\n')            #用.write()寫到檔案內  # 加法只能字串跟字串，但p[0],p[1]要用str()轉成字串 #改存成.csv格式 # \n就是換行符號
+# 剛剛有說，寫入和讀取都會有編碼問題，即使寫入encoding = 'utf-8'，excel讀取要是沒有使用utf-8，也還是會出現亂碼
+# 如何用excel正確使用utf-8編碼導入csv檔
+# Ecel導入csv資料:
+# 資料 -> 從文字檔 ->選取要匯入的csv檔
+# 編碼:選UTF-8
+# 分隔符號:選逗點comma   
