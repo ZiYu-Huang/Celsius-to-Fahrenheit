@@ -4,21 +4,25 @@
 #二維清單即大火車內有各個小小清單組成
 
 #讀取檔案程式碼
+#Q:先檢查有沒有檔案?
+import os #os = operating system作業系統模組，就像是政府一樣，可以綜覽全部電腦檔案
 products = []
-with open ('products.csv', 'r', encoding= 'utf-8') as f: #讀取也會有亂碼問題，故加上encoding = 'utf-8'來讀取
-    for line in f:    
-        # s = line.strip()split(',')                  # .split(',') 用逗點分割line，遇到逗點就切 # 用.strip( )來除掉換行符號\n #split切割完的結果是清單，存到清單s中
-        # name = s[0]
-        # price = s[1]
-        # Q :讀取檔案時，如何不要把商品，價格寫入清單products中?
-        if '商品,價格' in line:                        #continue跟break一樣只能寫在迴圈中 #continue通常都是寫在迴圈中很高的位置，因為在低位置都快跑完這一回迴圈了                     
-            continue                                  #continue就是跳到下一迴的意思，以這個例子來說，剩下的16-17行就跳過不執行，直接從下一迴重來，沒有跳出迴圈(break才會跳出)，下一迴就不會是商品價格了
-        name, price = line.strip().split(',')         # 切割完分成兩塊，直接把切割完左右兩塊內容分別裝到name和price中，直接簡化前面三行   
-        products.append([name, price])                # 有了兩個屬性name和product，把讀到的內容裝進清單products中
-print(products)                                       # 確定有讀取成功
-
-
-
+if os.path.isfile('products.csv'):  # 使用os.path.isfile()來檢查檔案在不在
+    print ('yeah!找到檔案了!')
+    with open ('products.csv', 'r', encoding= 'utf-8') as f: #讀取也會有亂碼問題，故加上encoding = 'utf-8'來讀取
+        for line in f:    
+            # s = line.strip()split(',')                  # .split(',') 用逗點分割line，遇到逗點就切 # 用.strip( )來除掉換行符號\n #split切割完的結果是清單，存到清單s中
+            # name = s[0]
+            # price = s[1]
+            # Q :讀取檔案時，如何不要把商品，價格寫入清單products中?
+            if '商品,價格' in line:                        #continue跟break一樣只能寫在迴圈中 #continue通常都是寫在迴圈中很高的位置，因為在低位置都快跑完這一回迴圈了                     
+                continue                                  #continue就是跳到下一迴的意思，以這個例子來說，剩下的16-17行就跳過不執行，直接從下一迴重來，沒有跳出迴圈(break才會跳出)，下一迴就不會是商品價格了
+            name, price = line.strip().split(',')         # 切割完分成兩塊，直接把切割完左右兩塊內容分別裝到name和price中，直接簡化前面三行   
+            products.append([name, price])                # 有了兩個屬性name和product，把讀到的內容裝進清單products中
+    print(products)                                       # 確定有讀取成功
+else:
+    print('找不到檔案')
+#讓使用者輸入
 while True:
     name = input('請輸入商品名稱: ')
     if name == 'q':
@@ -29,20 +33,18 @@ while True:
     #p.append(price)
     #products.append(p)   #最後把小清單p加到大清單products中 #小清單都放到大清單裡面，完成2維清單
     products.append([name, price]) #上面四行簡潔成一行就可以了 #記得裡面要放中括號 #兩個屬性直接建立小清單，放到大清單products中
-
 print(products)               # [['ramen', '100'], ['pasta', '200']]
 
 #清單的索引標籤叫做index
 print(products[0][0])    # 先找出大清單中的第0格，再找到小清單中的第0格 #ramen
 
-# Q: 寫出每個商品對應的價格
+# Q: 印出所有商品對應的價格
 for p in products:
     print(p[0], '的商品價格為: ', p[1])
     print(p)     #是把每一個小清單拿出來
     print(p[0])  #是把每一個小清單中的第0格拿出來
 
-# Q: 如何把商品和價格儲存到電腦中?
-
+# Q: 如何把商品和價格儲存到電腦中(寫入檔案)?
 #加法可以做字串的合併，'我的年齡是' + '23' = 我的年齡是23
 with open ('products.csv', 'w')  as f:              #有沒有products.csv這個檔案不重要，有的話會覆蓋掉，沒有會自動建立(因為現在是寫入模式) #每一種商品有很多種不同屬性的時候，多會用.csv儲存資料
     for p in products:
