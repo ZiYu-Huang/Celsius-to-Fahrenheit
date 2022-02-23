@@ -1,9 +1,15 @@
 # 初學Python適合寫的小程式
-1. input and print:Hi 輸入並輸出嗨
-2. Casting型別轉換:Celsius to Fahrenheit 攝氏轉換華氏溫度 
-3. if elif else:BMI Calculator BMI計算器
-4. two layered "if" :Age regonition 年齡判斷
-5. raise SystemExit: Age recogntion II 年齡判斷II
-6. while loop迴圈:無限、數次、一次
-7. while true:Age recogntion III 年齡判斷III
-8. 
+1. input and print: hi.py
+2. Casting型別轉換: C_to_F.py
+3. if elif else: BMI_calculator.py
+4. while true、two layered "if"、raise SystemExit : age_drive_regonition.py
+5. while loop迴圈: while1.py
+6. Password retrail 密碼重試: while3.py & psw_retrial.py
+7. Import random + while true: guess.py
+8. Import range +for loop: range.py
+9. List清單: list.py
+10. for loop迴圈: for_loop.py
+11. read program 讀取檔案 + erase space: read.py
+12. % and calculate len and avg 留言各種分析: review_analytics.py
+13. second dimension lists二維清單: products.py
+14. write program as .csv寫入檔案: products.py

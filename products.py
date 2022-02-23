@@ -6,13 +6,18 @@
 #讀取檔案程式碼
 products = []
 with open ('products.csv', 'r', encoding= 'utf-8') as f: #讀取也會有亂碼問題，故加上encoding = 'utf-8'來讀取
-    for line in f:
+    for line in f:    
         # s = line.strip()split(',')                  # .split(',') 用逗點分割line，遇到逗點就切 # 用.strip( )來除掉換行符號\n #split切割完的結果是清單，存到清單s中
         # name = s[0]
         # price = s[1]
+        # Q :讀取檔案時，如何不要把商品，價格寫入清單products中?
+        if '商品,價格' in line:                        #continue跟break一樣只能寫在迴圈中 #continue通常都是寫在迴圈中很高的位置，因為在低位置都快跑完這一回迴圈了                     
+            continue                                  #continue就是跳到下一迴的意思，以這個例子來說，剩下的16-17行就跳過不執行，直接從下一迴重來，沒有跳出迴圈(break才會跳出)，下一迴就不會是商品價格了
         name, price = line.strip().split(',')         # 切割完分成兩塊，直接把切割完左右兩塊內容分別裝到name和price中，直接簡化前面三行   
         products.append([name, price])                # 有了兩個屬性name和product，把讀到的內容裝進清單products中
 print(products)                                       # 確定有讀取成功
+
+
 
 while True:
     name = input('請輸入商品名稱: ')
