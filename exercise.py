@@ -5,7 +5,7 @@ with open ('test.txt', 'w') as f:
     for d in data:
         f.write(str(d) + '\n')  #記得要用'+'合併
 
-#Quiz
+#Quiz_Function
 
 def add(x, y):
     print(1, 6)
@@ -38,7 +38,6 @@ hello(3, 4)
 
 def crazy(x, y=3, z=2):
     return x * 2 + y * 3 + z
- 
 crazy(2)
 crazy(3, 1)
 crazy(3, 2, 0)
@@ -81,3 +80,30 @@ print(check_mood('藍'))
 # 印出好心情和心情不好
 # 主要讓你們見識function的各種寫法
 # 第一個印好心情因為沒有投東西，所以color用預設值，所以mood就維持好心情，沒有進去if的裡面去改變。
+
+# Quiz_function_return
+# 寫一個function判斷是不是閏年(二月會多一天的年)
+def is_leap(year):            #function應該要有一個參數讓使用者傳遞進去
+    if year % 4 != 0:         #公元年分非4的倍數，為平年 #用%來求餘數
+        return False          #function的回傳值應該是布林值，閏年return True，不然就False
+    elif year % 100 != 0:     #公元年分為4的倍數但非100的倍數，為閏年
+        return True           # return後面不用加括號
+    elif year % 400 != 0:     #公元年分為100的倍數但非400的倍數，為平年
+        return False
+    elif year % 3200 != 0:    #公元年分為400的倍數為閏年
+        return True
+    else:                     #記得else
+        return False
+print(is leap(1998))   
+
+#寫一個funciton來算出清單中數字的總數
+#法一:直接使用python內建功能sum就可以直接得到清單中的總數了
+def sum_of_list(numbers):     #funciton應該要有一個參數讓使用者傳遞進去一個清單
+    return sum(numbers)       #function應該回傳清單中數字的總數 # return後面不用加括號
+print(sum_of_list([1, 2, 3])) #應該要印出6
+#刻意用for loop來做加總
+def sum_of_list(numbers):
+    sum_number = []
+    for num in numbers:
+        sum_number += num
+    return sum_number         # return後面不用加括號    
