@@ -11,5 +11,7 @@
 10. for loop迴圈: for_loop.py
 11. read program 讀取檔案 + erase space: read.py
 12. % and calculate len and avg 留言各種分析: review_analytics.py
-13. second dimension lists二維清單: products.py
-14. write program as .csv寫入檔案: products.py
+13. second dimension lists二維清單 + write program as .csv寫入檔案 + 
+add header欄位名稱 and encoding編碼 + read file + split切割 + strip去掉換行符號 + read file without reading headers讀取檔案時不把欄位放入清單中 + os.path.isfile檢查檔案在不在 + refactor + main function(): products.py
+14. function函式 + parameter參數+ return回傳: function.py
+
