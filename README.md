@@ -18,7 +18,7 @@ add header欄位名稱 and encoding編碼 + read file + split切割 + strip去�
 16. dict字典{}: dict.py; review_analytics.py
 17. Import內部外部(PYPI) + object物件 + class類別: review_analytics.py
 18. NumPy認識多維資料及各numpy方法，有利於之後操作pandas的DataFrame: Day2.ipynb
-19. panda檢視資料狀況、資料型態轉換，補充缺失值、範圍切割等: Day6~12.ipynb
+19. pandas檢視資料狀況、資料型態轉換，補充缺失值、範圍切割等: Day6~12.ipynb
 20. seaborn資料視覺化，與pandas與seaborn的相互操作:Day13.ipynb
 21. sklearn的資料前處理方法:Day14.ipynb
 22. pytorch深度學習套件
