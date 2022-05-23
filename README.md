@@ -22,4 +22,4 @@ add header欄位名稱 and encoding編碼 + read file + split切割 + strip去�
 20.seaborn資料視覺化，與pandas與seaborn的相互操作:Day13.ipynb
 21.sklearn的資料前處理方法:Day14.ipynb
 22.pytorch深度學習套件:
-23.Kaggle資料實作機器學習![image](https://user-images.githubusercontent.com/63539655/169847598-346d4c75-ac71-45ba-8c18-ac6359de1007.png)
+23.Kaggle資料實作機器學習
